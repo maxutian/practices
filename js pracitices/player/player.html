@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>player</title>
+  <link rel="stylesheet" href="style/style.css">
+  <link href="https://cdn.bootcss.com/material-design-icons/3.0.1/iconfont/material-icons.css" rel="stylesheet">
+</head>
+<body>
+<div id="v-player-container">
+  <audio id="v-player-music" loop="loop" onloadedmetadata="musicLength()">
+    <source src="http://m2.music.126.net/XVILMKj3bTnirqOXc1x5xA==/1318314441705656.mp3">
+  </audio>
+  <div id="v-player-control">
+    <button class="v-player-pre">
+      <i class="material-icons" id="previous">skip_previous</i>
+    </button>
+    <button onclick="changeIcon()" class="play-pause">
+      <i class="material-icons" id="play-pause-icon">play_circle_outline</i>
+    </button>
+    <button class="v-player-next">
+      <i class="material-icons" id="next">skip_next</i>
+    </button>
+  </div>
+  <div id="v-player-duration">
+    <div id="pointer">
+      <div id="pointer-s"></div>
+    </div>
+    <div id="duration-bg">
+      <div id="progress-bar"></div>
+    </div>
+  </div>
+  <div id="audioLength">
+    <div id="currentMinutes">00</div>
+    <span>:</span>
+    <div id="currentSeconds">00</div>
+    <span>/</span>
+    <div id="musicMinutes">00</div>
+    <div>:</div>
+    <div id="musicSeconds">00</div>
+  </div>
+  <button class="v-player-voice" onclick="volumeControl()">
+    <i class="material-icons" id="voice">volume_up</i>
+  </button>
+  <div id="v-volume-duration">
+    <div id="v-pointer">
+      <div id="v-pointer-s"></div>
+    </div>
+    <div id="v-duration-bg">
+      <div id="v-progress-bar"></div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="./js/controller.js"></script>
+</body>
+</html>
