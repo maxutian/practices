@@ -24,17 +24,20 @@ body{
 }
 .dot1{
 	animation-name: circle1;
-	animation-duration: 2s;
+	animation-duration: 1.5s;
+	animation-timing-function: cubic-bezier(0.785, 0.000, 0.245, 1.005); 
 	animation-iteration-count: infinite;
 }
 .dot2{
 	animation-name: circle2;
-	animation-duration: 2s;
+	animation-duration: 1.5s;
+	animation-timing-function: cubic-bezier(0.785, 0.000, 0.245, 1.005);
 	animation-iteration-count: infinite;
 }
 .dot3{
 	animation-name: circle3;
-	animation-duration: 2s;
+	animation-duration: 1.5s;
+	animation-timing-function: cubic-bezier(0.785, 0.000, 0.245, 1.005);
 	animation-iteration-count: infinite;
 }
 
