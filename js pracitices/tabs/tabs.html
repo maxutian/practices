@@ -29,8 +29,10 @@
 <div class="wrapper">
   <div class="tabs">
     <ol class="select">
-      <li id="t1">how buying works</li>
-      <li id="t2">how selling works</li>
+      <li>how buying works</li>
+      <li>how selling works</li>
+      <li>how selling works</li>
+      <li>how selling works</li>
     </ol>
     <ol class="contents">
       <li>
@@ -39,39 +41,57 @@
       <li>
         <div class="circle">2</div>
       </li>
+      <li>
+        <div class="circle">3</div>
+      </li>
+      <li>
+        <div class="circle">4</div>
+      </li>
     </ol>
   </div>
 </div>
 <script>
 	var select = document.querySelector('.select');
 	var contents = document.querySelector('.contents');
+	var seleLi = select.getElementsByTagName('li');
+	var contLi = contents.getElementsByTagName('li');
+	var rst = clear();
 
-	select.children[0].onclick = function () {
-		if (!this.hasAttribute('class')) {
-			this.setAttribute('class', 'active');
-			select.children[1].removeAttribute('class');
-			contents.children[0].setAttribute('class', 'active');
-			contents.children[1].removeAttribute('class');
-		} else {
-			return;
+	function init (num) {
+		seleLi[num].setAttribute('class', 'active');
+		contLi[num].setAttribute('class', 'active');
+	}
+
+	function clear () {
+		for (var i = 0; i < seleLi.length; i++) {
+			if (seleLi[i].hasAttribute('class') && contLi[i] !== undefined) {
+				seleLi[i].removeAttribute('class');
+				contLi[i].removeAttribute('class');
+			} else if (seleLi[i].hasAttribute('class') && contLi[i] === undefined) {
+				seleLi[i].removeAttribute('class');
+			}
 		}
 	}
 
-	select.children[1].onclick = function () {
-		if (!this.hasAttribute('class')) {
-			this.setAttribute('class', 'active');
-			select.children[0].removeAttribute('class');
-			contents.children[1].setAttribute('class', 'active');
-			contents.children[0].removeAttribute('class');
-		} else {
-			return;
+	function tabs () {
+		for (var i = 0; i < seleLi.length; i++) {
+			seleLi[i].index = i;
+			seleLi[i].onclick = function () {
+				clear();
+				this.setAttribute('class', 'active');
+				if (contLi[this.index] !== undefined) {
+					contLi[this.index].setAttribute('class', 'active');
+				}
+			}
 		}
 	}
 
 	window.onload = function () {
-		select.children[0].setAttribute('class', 'active');
-		contents.children[0].setAttribute('class', 'active');
+		init(0);
+		tabs();
 	}
+
+
 </script>
 </body>
 </html>
