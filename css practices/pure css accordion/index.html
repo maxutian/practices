@@ -3,8 +3,127 @@
 <head>
 	<meta charset="UTF-8">
 	<title>pure css accordion</title>
+	<style>
+		#container{
+			width: 25%;
+			margin: 0 auto;
+			padding: 0;
+			box-shadow: 0 1px 5px rgba(0,0,0,.2), 0 2px 2px rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.12);
+		}
+		#container input{
+			display: none;
+		}
+		.radiocontain{
+			position: relative;
+			width: 100%;
+			height: 50px;
+		}
+		.click{
+			cursor: pointer;
+			width: 100%;
+			height: 50px;
+			color: white;
+			font-weight: 600;
+			box-sizing: border-box;
+			margin-top: -1px;
+			padding-left: 15px;
+			line-height: 50px;
+		}
+		.radiocontain:nth-of-type(1) .click{
+			border-top-left-radius: 3px;
+			border-top-right-radius: 3px;
+			background-color: #3949AB;
+		}
+		.radiocontain:nth-of-type(2) .click{
+			background-color: #E53935;
+		}
+		.radiocontain:nth-of-type(3) .click{
+			background-color: #388E3C;
+		}
+		.content{
+			display: none;
+			width: 100%;
+			height: auto;
+			font-family: '微软雅黑';
+			margin: -1px 0;
+			padding: 10px 15px;
+			padding-bottom: 20px;
+			box-sizing: border-box;
+			white-space: pre-wrap;
+		}
+		.radiocontain input[type="radio"]:checked ~ .content{
+			display: block;
+		}
+	</style>
 </head>
 <body>
-	
+<div id="container">
+	<label class="radiocontain">
+		<input type="radio" name="accordion" checked="checked">
+		<div class="click">Shape Of You - Ed.Sheeran</div>
+		<p class="content">I'm in love with the shape of you
+We push and pull like a magnet do
+Although my heart is falling too
+I'm in love with your body
+And last night you were in my room
+And now my bedsheets smell like you
+Every day discovering something brand new
+I'm in love with your body
+Oh—I—oh—I—oh—I—oh—I
+I'm in love with your body
+Oh—I—oh—I—oh—I—oh—I
+I'm in love with your body
+Oh—I—oh—I—oh—I—oh—I
+I'm in love with your body
+Every day discovering something brand new
+I'm in love with the shape of you</p>
+	</label>
+	<label class="radiocontain">
+		<input type="radio" name="accordion">
+		<div class="click">Humble - Kendrick.Lamar</div>
+		<p class="content">Ayy, I remember syrup sandwiches and crime allowances
+Finesse a nigga with some counterfeits, but now I’m countin' this
+Parmesan where my accountant lives; in fact, I'm downin’ this
+D'USSÉ with my boo bae tastes like Kool-Aid for the analysts
+Girl, I can buy yo' ass the world with my paystub
+Ooh, that pussy good, won't you sit it on my taste bloods?
+I get way too petty once you let me do the extras
+Pull up on your block, then break it down: we playin' Tetris
+A.M. to the P.M., P.M. to the A.M., funk
+Piss out your per diem, you just gotta hate 'em, funk
+If I quit your BM, I still ride Mercedes, funk
+If I quit this season, I still be the greatest, funk
+My left stroke just went viral
+Right stroke put lil' baby in a spiral
+Soprano C, we like to keep it on a high note
+It's levels to it, you and I know</p>
+	</label>
+	<label class="radiocontain">
+		<input type="radio" name="accordion">
+		<div class="click">Adieu - 17Hippies</div>
+		<p class="content">Ich bin gekommen, um Adieu zu sagen,
+die andern sind schon vor und warten,
+doch dein Duft bleibt in der Luft zurück.
+
+Ich nehm’ mit, was keiner sagen kann,
+da keiner so nah dran wie ich dich spür’,
+als wärst du hier.
+
+Weißt du noch als dann der Abend kam,
+ganz bleich lagst du in meinem Arm,
+du sprachst nicht viel und strömtest weg ins blaue Licht.
+
+Ich bin gekommen, um Adieu zu sagen …
+
+Alles, was du mir verrietst,
+als du in meinen Armen bliebst,
+du sagtest nur ‘ich will die Nacht von dir’.
+
+Ich bin gekommen, um Adieu zu sagen,
+die andern sind schon vor und warten.
+Nun bleib’ ich von dir verführt zurück.
+</p>
+	</label>
+</div>
 </body>
 </html>
