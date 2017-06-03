@@ -43,16 +43,18 @@
 		.content{
 			display: none;
 			width: 100%;
-			height: auto;
+			height: 0;
 			font-family: '微软雅黑';
 			margin: -1px 0;
 			padding: 10px 15px;
 			padding-bottom: 20px;
 			box-sizing: border-box;
 			white-space: pre-wrap;
+			transition: height 1s ease;
 		}
 		.radiocontain input[type="radio"]:checked ~ .content{
 			display: block;
+			height: auto;
 		}
 	</style>
 </head>
@@ -60,7 +62,7 @@
 <div id="container">
 	<label class="radiocontain">
 		<input type="radio" name="accordion" checked="checked">
-		<div class="click">Shape Of You - Ed.Sheeran</div>
+		<header class="click">Shape Of You - Ed.Sheeran</header>
 		<p class="content">I'm in love with the shape of you
 We push and pull like a magnet do
 Although my heart is falling too
@@ -80,7 +82,7 @@ I'm in love with the shape of you</p>
 	</label>
 	<label class="radiocontain">
 		<input type="radio" name="accordion">
-		<div class="click">Humble - Kendrick.Lamar</div>
+		<header class="click">Humble - Kendrick.Lamar</header>
 		<p class="content">Ayy, I remember syrup sandwiches and crime allowances
 Finesse a nigga with some counterfeits, but now I’m countin' this
 Parmesan where my accountant lives; in fact, I'm downin’ this
@@ -100,7 +102,7 @@ It's levels to it, you and I know</p>
 	</label>
 	<label class="radiocontain">
 		<input type="radio" name="accordion">
-		<div class="click">Adieu - 17Hippies</div>
+		<header class="click">Adieu - 17Hippies</header>
 		<p class="content">Ich bin gekommen, um Adieu zu sagen,
 die andern sind schon vor und warten,
 doch dein Duft bleibt in der Luft zurück.

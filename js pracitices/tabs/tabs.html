@@ -13,6 +13,7 @@ body { background: #E2DED2; display: flex; justify-content: center; align-items:
 .tabs ol:first-child { display: flex; border: 1px solid #B8B3AE; border-bottom: none; }
 .tabs ol:first-child>li { flex-grow: 1; padding: 20px; text-align: center; text-transform: uppercase; background: linear-gradient(to bottom, #e5dfd3 0%, #d0c9b8 100%); color: #847E6F; text-shadow: 1px 1px 1px white; box-shadow: inset 0 0 2px hsla(0, 0%, 0%, 0.15); }
 .tabs ol:first-child>li.active { background: linear-gradient(to bottom, white 0%, #F0EDE6 100%); color: #222222; box-shadow: none; }
+.tabs ol:nth-child(1) li { cursor: pointer; }
 .tabs ol:nth-child(2) { border: 1px solid #B8B3AE; border-top: none; background: #F0EDE6; }
 .tabs ol:nth-child(2) > li { display: none; min-height: 5em; }
 .tabs ol:nth-child(2) > li.active { display: flex; justify-content: center; align-items: center; }
@@ -20,8 +21,8 @@ body { background: #E2DED2; display: flex; justify-content: center; align-items:
   </style>
 </head>
 <body>
-<div class="wrapper">
-  <div class="tabs">
+<content class="wrapper">
+  <section class="tabs">
     <ol class="select">
       <li>how buying works</li>
       <li>how selling works</li>
@@ -42,8 +43,8 @@ body { background: #E2DED2; display: flex; justify-content: center; align-items:
         <div class="circle">4</div>
       </li>
     </ol>
-  </div>
-</div>
+  </section>
+</content>
 <script>
 var select = document.querySelector('.select');
 var contents = document.querySelector('.contents');
