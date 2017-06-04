@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>hover text</title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		#container{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			position: relative;
+			width: 960px;
+			height: 594px;
+			margin: 50px auto;
+		}
+		#container:hover #flow{
+			opacity: 1;
+			transition: all .3s ease-in;
+			animation: textColor 3s linear infinite;
+		}
+		#container:hover #aniborder{
+			opacity: 1;
+			transition: all .3s ease-in;
+		}
+		#container:hover #topbd,#container:hover #bottombd{
+			animation: borderWidth .6s ease-in 1;
+		}
+		#container:hover #leftbd,#container:hover #rightbd{
+			animation: borderHeight .6s ease-in 1;
+		}
+		#container:hover #bg{
+			filter: blur(10px);
+			transition: all .3s ease-in;
+		}
+		#flow{
+			z-index: 998;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			opacity: 0;
+			color: transparent;
+			font-size: 4em;
+			font-weight: 600;
+			transition: all .3s ease-in;
+			background-image: -webkit-linear-gradient(left,#D81159, #E53A40 10%, #FFBC42 20%, #75D701 30%, #30A9DE 40%,#D81159 50%, #E53A40 60%, #FFBC42 70%, #75D701 80%, #30A9DE 90%,#D81159);
+			-webkit-background-size: 200% 100%;
+			background-size: 200% 100%;
+			-webkit-background-clip: text;
+		}
+		#aniborder{
+			z-index: 999;
+			position: absolute;
+			width: 70%;
+			height: 70%;
+			opacity: 0;
+			border: none;
+			background-color: transparent;
+			transition: all .3s ease-in;
+		}
+		#topbd,#bottombd{
+			position: absolute;
+			width: 100%;
+			height: 8px;
+			background-color: #666;
+		}
+		#bottombd{
+			bottom: 0;
+		}
+		#leftbd,#rightbd{
+			position: absolute;
+			width: 8px;
+			height: 100%;
+			background-color: #666;
+		}
+		#rightbd{
+			right: 0;
+		}
+		#bg{
+			width: 100%;
+			height: 100%;
+			background: url('background.jpg');
+			background-repeat: no-repeat;
+			transition: all .3s ease-in;
+		}
+		@keyframes textColor {
+			from {
+				background-position: 0% 0%;
+			}
+			to {
+				background-position: -100% 0%;
+			}
+		}
+		@keyframes borderWidth {
+			from {
+				width: 0;
+				left: 50%;
+			}
+			to {
+				width: 100%;
+				left: 0;
+			}
+		}
+		@keyframes borderHeight {
+			from {
+				height: 0;
+				top: 50%;
+			}
+			to {
+				height: 100%;
+				top: 0;
+			}
+		}
+	</style>
+</head>
+<body>
+<div id="container">
+	<div id="flow"><p>Summer</p></div>
+	<div id="aniborder">
+		<div id="topbd"></div>
+		<div id="leftbd"></div>
+		<div id="rightbd"></div>
+		<div id="bottombd"></div>
+	</div>
+	<div id="bg"></div>
+</div>
+</body>
+</html>
