@@ -10,12 +10,12 @@
 	<header id="calendar-header">
 		<div id="calendar-year">
 			<button id="preYear"><i class="fa fa-chevron-left"></i></button>
-			<p id="year">2017</p>
+			<p id="year"></p>
 			<button id="nextYear"><i class="fa fa-chevron-right"></i></button>
 		</div>
 		<div id="calendar-month">
 			<button id="preMonth"><i class="fa fa-chevron-left"></i></button>
-			<p id="month">06</p>
+			<p id="month"></p>
 			<button id="nextMonth"><i class="fa fa-chevron-right"></i></button>
 		</div>
 	</header>
@@ -25,14 +25,11 @@
 			<li>
 				<div id="Monday" class="weekdays">
 					<p>一</p>
-					<div class="date">1</div>
-					<div class="date">1</div>
 				</div>
 			</li>
 			<li>
 				<div id="Tuesday" class="weekdays">
 					<p>二</p>
-					<div class="date">1</div>
 				</div>
 			</li>
 			<li>
@@ -62,5 +59,12 @@
 			</li>
 		</ul>
 	</content>
+
+<script src="js/calendar.js"></script>
+<script>
+	window.onload = function () {
+		initDate();
+	}
+</script>
 </body>
 </html>
