@@ -30,15 +30,24 @@ function clearDate () {
 	}
 }
 
-function setDate (year, month) {
-	var sumDate = new Date(year, month + 1, 0).getDate();
-	// 留白
+function markToday () {
+	var toWeek = new Date().getDay();
+	
+}
+
+function setWhiteSpace (year, month) {
 	var firstDate = new Date(year, month, 0).getDay();
 	for (var i = 0; i < firstDate; i++) {
 		var datep = document.createElement('p');
 		datep.className = 'date';
 		weekdays[i].appendChild(datep);
 	}
+}
+
+function setDate (year, month) {
+	var sumDate = new Date(year, month + 1, 0).getDate();
+	// 留白
+	setWhiteSpace(year, month);
 	// 添加日期
 	for (var i = 0;i < sumDate;i++){
 		var weekday = new Date(year, month, i).getDay();
