@@ -1,17 +1,29 @@
 var Settings = {
-	imgWidth: '20%',
+	imgWidth: '15%',
 	imgRatio: '1',
+	scrollDelay: 3000,
 	imgArr: ['style_001.jpg', 'style_002.jpg', 'style_003.jpg', 'style_004.jpg']
+}
+
+function $ (ele) {
+
+  return document.querySelector(ele);
+
 }
 
 function Carousel () {
 
-	var holder = document.getElementById('Carousel'),
-			showWindow = document.getElementById('show');
+	var holder = $('#Carousel'),
+			list = $('#list'),
+			index = 0,
+			curWidth;
+			list.style.left = '0px';
 
+	// 依次获取图片资源并布局到页面中
 	this.initResource = (function () {
 
-		// 依次获取图片资源并布局到页面中
+		Settings.imgArr.push(Settings.imgArr[0]);
+
 		for (var i in Settings.imgArr) {
 
 			var imgHolder = document.createElement('img');
@@ -19,55 +31,87 @@ function Carousel () {
 			imgHolder.setAttribute('class', 'img');
 			imgHolder.setAttribute('id', 'img' + ++i)
 			imgHolder.src = 'images/' + Settings.imgArr[--i];
-			holder.appendChild(imgHolder);
+			list.appendChild(imgHolder);
 
 		}
 
-		// 调整图片比例
 		imgRatio();
 
 	})();
 
+	// 监听窗口大小并调整比例
 	this.formatImages = (function () {
 
-		// 监听窗口大小并调整比例
 		window.onresize = function () {
 
 			imgRatio();
+			list.style.left = -(index - 1) * curWidth + 'px';
 
 		}
 
 	})();
 
+	// 设置图片比例
 	function imgRatio () {
 
 		for (var i in Settings.imgArr) {
 
-				var images = document.getElementById('img' + ++i);
+				var images = $('#img' + ++i);
 
-				showWindow.style.width = images.style.width = Settings.imgWidth;
-				showWindow.style.height = images.style.height = (images.clientWidth / Settings.imgRatio) + 'px';
+				holder.style.width = Settings.imgWidth;
+				curWidth = holder.clientWidth;
+				holder.style.height = images.style.height = (curWidth / Settings.imgRatio) + 'px';
 
 			}
 
 	}
 
-	this.autoScroll = function () {
+	// 自动切换图片
+	this.autoScroll = (function () {
 
-		console.log(4);
+		var timer = setInterval(function () {
 
-	}
+			nextImg();
 
-	this.preImg = function () {
+		}, Settings.scrollDelay);
+
+	})();
+
+	 //切换到上一张图片 
+	function prevImg () {
 
 		console.log(5);
 
 	}
 
-	this.nextImg = function () {
+	// 切换到下一张图片
+	function nextImg () {
 
-		console.log(6);
+		 var timer1 = setInterval(function () {
 
+			if (parseInt(list.style.left) === -index * curWidth) {
+
+				clearInterval(timer1);
+
+			} else {
+
+				list.style.left = parseInt(list.style.left) - 3 + 'px';
+
+			}
+
+		}, 1);
+
+		if (index === Settings.imgArr.length - 1) {
+
+			index = 0;
+			list.style.left = '0px';
+
+		} else {
+
+			index++;
+
+		}
+		
 	}
 
 }
