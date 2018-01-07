@@ -50,14 +50,10 @@ var wbImg = {
             if (t_curr - t_start >= mustRunDelay) {
                 fn.apply(context, args);
                 t_start = t_curr;
-                console.log(1, t_curr);
-                
             }
             else {
                 timer = setTimeout(function () {
                     fn.apply(context, args);
-                    console.log(2, t_curr);
-                    
                 }, delay);
             }
         }
@@ -124,7 +120,8 @@ var wbImg = {
                         hoverImgs.css('left', -((wbImg.curIndexNum - 1) * wbImg.clientWidth) + goRight)
                     }
                 }
-                wbImg.throttle(handleMove, 20, 32)(e)
+                // wbImg.throttle(handleMove, 20, 32)(e)
+                handleMove(e)
             },
             touchend: function (e) {
                 endX = e.originalEvent.changedTouches[0].pageX
