@@ -110,18 +110,14 @@ var wbImg = {
                 startX = e.touches[0].pageX
             },
             touchmove: function(e) {
-                function handleMove(e) {
-                    var curPageX = e.touches[0].pageX
-                    if(curPageX < startX) {
-                        var goLeft = startX - curPageX
-                        hoverImgs.css('left', -((wbImg.curIndexNum - 1) * wbImg.clientWidth) - goLeft)
-                    } else if(curPageX > startX) {
-                        var goRight = curPageX - startX
-                        hoverImgs.css('left', -((wbImg.curIndexNum - 1) * wbImg.clientWidth) + goRight)
-                    }
+                var curPageX = e.touches[0].pageX
+                if(curPageX < startX) {
+                    var goLeft = startX - curPageX
+                    hoverImgs.css('left', -((wbImg.curIndexNum - 1) * wbImg.clientWidth) - goLeft)
+                } else if(curPageX > startX) {
+                    var goRight = curPageX - startX
+                    hoverImgs.css('left', -((wbImg.curIndexNum - 1) * wbImg.clientWidth) + goRight)
                 }
-                // wbImg.throttle(handleMove, 20, 32)(e)
-                handleMove(e)
             },
             touchend: function (e) {
                 endX = e.originalEvent.changedTouches[0].pageX
