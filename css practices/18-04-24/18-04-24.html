@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css-content</title>
+    <style>
+        body {
+            background-color: #fafafa;
+        }
+        input[name="selected-stuff"] {
+            display: none;
+        }
+        .main-container {
+            counter-reset: selected-item;
+            width: 65%;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: justify;
+            box-shadow: 0 3px 3px -2px rgba(0,0,0,.2), 0 3px 4px 0 rgba(0,0,0,.14), 0 1px 8px 0 rgba(0,0,0,.12);
+        }
+        .stuff-item {
+            display: inline-block;
+            position: relative;
+            width: 30%;
+            min-height: 300px;
+            margin: 10px;
+            margin-bottom: 30px;
+        }
+        .stuff-thumb {
+            object-fit: contain;
+            width: 100%;
+            height: 100%;
+        }
+        .stuff-label {
+            overflow: hidden;
+            cursor: pointer;
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transition: all .3s ease-out;
+            box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+        }
+        .stuff-label::after {
+            content: attr(name);
+            z-index: 999;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            color: #fff;
+            text-align: center;
+            height: 30px;
+            line-height: 30px;
+            background-color: rgba(0, 0, 0, .5);
+            transition: all .3s ease-out;
+            transform: translateY(100%);
+        }
+        .stuff-label:hover::after {
+            transform: translateY(0);
+            transition: transform .3s ease-out; 
+        }
+        input[name="selected-stuff"]:checked + .stuff-label {
+            counter-increment: selected-item;
+            transition: box-shadow .3s ease-out;
+            box-shadow: 0 4px 5px -2px rgba(0,0,0,.2), 0 7px 10px 1px rgba(0,0,0,.14), 0 2px 16px 1px rgba(0,0,0,.12);
+        }
+        .total-select-num::after {
+            content: '您已选择:' counter(selected-item) '个';
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <section class="stuff-item">
+            <img src="./asus.jpg" alt="ASUS Strix 1070Ti" class="stuff-thumb">
+            <input type="checkbox" name="selected-stuff" id="selected-stuff1">
+            <label class="stuff-label" for="selected-stuff1" name="ASUS Strix 1070Ti"></label>
+        </section>
+        <section class="stuff-item">
+            <img src="./gigabyte.jpg" alt="GIGABYTE 1070Ti" class="stuff-thumb">
+            <input type="checkbox" name="selected-stuff" id="selected-stuff2">
+            <label class="stuff-label" for="selected-stuff2" name="GIGABYTE 1070Ti"></label>
+        </section>
+        <section class="stuff-item">
+            <img src="./msi.jpg" alt="MSI 1070Ti Taitanium" class="stuff-thumb">
+            <input type="checkbox" name="selected-stuff" id="selected-stuff3">
+            <label class="stuff-label" for="selected-stuff3" name="MSI 1070Ti Taitanium"></label>
+        </section>
+        <section class="stuff-item">
+            <img src="./msi-normal.jpg" alt="MSI 1070Ti" class="stuff-thumb">
+            <input type="checkbox" name="selected-stuff" id="selected-stuff4">
+            <label class="stuff-label" for="selected-stuff4" name="MSI 1070Ti"></label>
+        </section>
+        <h3 class="total-select-num"></h3>
+    </div>
+</body>
+</html>
