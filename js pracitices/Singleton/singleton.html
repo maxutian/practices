@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="addInfoDom()">生成</button>
+    <button onclick="removeInfoDom()">删除</button>
+    <script>
+        // 一个独立的类，可以单独生成dom节点
+        class Singleton {
+            constructor(name) {
+                this.name = name;
+            }
+
+            init() {
+                const nameDiv = document.createElement("div");
+                nameDiv.id = 'info';
+                nameDiv.innerHTML = `个人姓名: ${this.name}`;
+                return nameDiv;
+            }
+        }
+
+        class DomOperate {
+            constructor(dom) {
+                this.target = document.getElementById('info');
+                this.dom = dom;
+            }
+
+            add = () => {
+                !this.target && document.body.append(this.dom);
+            }
+
+            remove = () => {
+                !this.target && this.dom.remove();
+            }
+        }
+
+        // 独立类的代理函数，在这个类中判断是否为唯一实例
+        const SingletonProxy = (function () {
+            let instance;
+            return function () {
+                if (!instance) {
+                    instance = new Singleton("马旭天").init();
+                }
+                return instance;
+            }
+        })()
+
+        const addInfoDom = new DomOperate(SingletonProxy()).add;
+        const removeInfoDom = new DomOperate(SingletonProxy()).remove;
+
+    </script>
+</body>
+
+</html>
